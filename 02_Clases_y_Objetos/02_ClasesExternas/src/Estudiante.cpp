@@ -1,17 +1,41 @@
 /*
  * Estudiante.cpp
  *
- *  Created on: Feb 19, 2013
+ *  Created on: Feb 20, 2013
  *      Author: j2deme
  */
 
 #include "Estudiante.h"
 
+
 Estudiante::Estudiante() {
 	this->promedio = 0.0;
+	this->semestre = 1;
+}
+
+Estudiante::Estudiante(string nombre, string apellido, string numControl,
+		int semestre, double promedio) {
+	this->nombre = nombre;
+	this->apellido = apellido;
+	this->numControl = numControl;
+	this->semestre = semestre;
+	this->promedio = promedio;
 }
 
 Estudiante::~Estudiante() {
+}
+
+void Estudiante::imprimirDatos() {
+	cout << "Nombre completo: " << this->nombre << " " << this->apellido << endl;
+	cout << "Número de control" << this->numControl << " Semestre: " << this->semestre << endl;
+}
+
+void Estudiante::estudiar() {
+	cout << this->nombre << " estudia." << endl;
+}
+
+void Estudiante::estudiar(string materia) {
+	cout << this->nombre << " estudia " << materia << endl;
 }
 
 const string& Estudiante::getApellido() const {
@@ -44,4 +68,12 @@ double Estudiante::getPromedio() const {
 
 void Estudiante::setPromedio(double promedio) {
 	this->promedio = promedio;
+}
+
+int Estudiante::getSemestre() const {
+	return semestre;
+}
+
+void Estudiante::setSemestre(int semestre) {
+	this->semestre = semestre;
 }

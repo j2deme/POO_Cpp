@@ -9,9 +9,9 @@
 #include <iostream>
 using namespace std;
 
-//#include "Estudiante.h"
 #include "Perro.h"
 #include "Persona.h"
+#include "Estudiante.h"
 
 int main() {
 	Perro mascota;
@@ -38,5 +38,28 @@ int main() {
 
 	cout << "La mascota de " << propietario.getNombre() << " se llama ";
 	cout << propietario.getMascota().getNombre() << endl;
+
+	Estudiante alumno, alumna;
+	alumno.setNombre("Erick");
+	alumno.setApellido("Franco");
+	alumno.setNumControl("12690602");
+	alumno.setSemestre(2);
+	alumno.setPromedio(8.0);
+
+	alumna.setNombre("Yesica");
+	alumna.setApellido("Martínez");
+	alumna.setNumControl("12180818");
+	alumna.setSemestre(2);
+	alumna.setPromedio(8.7);
+
+	alumno.estudiar();
+	alumna.estudiar();
+
+	alumno.imprimirDatos();
+	alumna.imprimirDatos();
+
+	Estudiante alumno3("Mateo","Martínez","12690178",2,8.7);
+	alumno3.imprimirDatos();
+	alumno3.estudiar("POO");
 	return 0;
 }
