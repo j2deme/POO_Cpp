@@ -3,3 +3,5 @@
 Release/
 *.d
 *.o
+.cproject
+.project
