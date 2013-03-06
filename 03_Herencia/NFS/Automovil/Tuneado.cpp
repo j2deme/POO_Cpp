@@ -17,6 +17,7 @@ void Tuneado::avanza(Automovil p) {
 	int random = 0;
 	int distancia;
 	distancia = this->distancia = this->distancia + random;
+	if(distancia == p.getDistancia()){
 		this->distancia = distancia + usarNitro();
 	}
 }

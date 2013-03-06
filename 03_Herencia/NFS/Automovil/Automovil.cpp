@@ -10,6 +10,7 @@
 Automovil::Automovil() {
 	this->cilindros = 4;
 	this->distancia = 0;
+	srand(time(0));
 }
 
 Automovil::~Automovil() {
@@ -48,4 +49,8 @@ void Automovil::setModelo(const string& modelo) {
 }
 
 void Automovil::avanza() {
+}
+
+int Automovil::aleatorio(int min, int max){
+	return (rand() % (max - min + 1)) + min;
 }

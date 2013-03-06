@@ -5,6 +5,8 @@
  *      Author: j2deme
  */
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 #ifndef AUTOMOVIL_H_
@@ -23,6 +25,7 @@ public:
 	void setDistancia(int distancia);
 	const string& getModelo() const;
 	void setModelo(const string& modelo);
+	int aleatorio(int,int);
 
 protected:
 	string modelo;
