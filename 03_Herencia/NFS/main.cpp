@@ -10,13 +10,21 @@ using namespace std;
 
 #include "Automovil/Automovil.h"
 #include "Automovil/Patrulla.h"
+#include "Automovil/Tuneado.h"
 
 int main(int argc, char **argv) {
-	int r = 0;
-	Automovil a;
-	for (int i = 0; i < 10; ++i) {
-		r = a.aleatorio(1,10);
-		cout << r << endl;
+	Patrulla p;
+	Tuneado t;
+	int distancia = 0;
+	do {
+		t.avanza(p);
+		p.avanza(t);
+		cout << "P: " << p.getDistancia() << " T: " << t.getDistancia() << "Choques: " << t.getChoques() << endl;
+		distancia = t.getDistancia();
+	} while (distancia <= 100 && t.getChoques() > 0);
+
+	if(t.getChoques() != 0){
+		cout << "Player Wins!" << endl;
 	}
 
 	return 0;

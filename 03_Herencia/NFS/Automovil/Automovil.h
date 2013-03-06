@@ -5,9 +5,10 @@
  *      Author: j2deme
  */
 #include <iostream>
+using namespace std;
+
 #include <cstdlib>
 #include <ctime>
-using namespace std;
 
 #ifndef AUTOMOVIL_H_
 #define AUTOMOVIL_H_
@@ -17,21 +18,23 @@ public:
 	Automovil();
 	virtual ~Automovil();
 	void avanza();
+	void setChoques();
 	int getCilindros() const;
 	void setCilindros(int cilindros);
-	const string& getColor() const;
-	void setColor(const string& color);
-	int getDistancia() const;
+	string getColor();
+	void setColor(string color);
+	int getDistancia();
 	void setDistancia(int distancia);
-	const string& getModelo() const;
-	void setModelo(const string& modelo);
+	string getModelo();
+	void setModelo(string modelo);
 	int aleatorio(int,int);
-
+	int getChoques();
 protected:
 	string modelo;
 	string color;
 	int cilindros;
 	int distancia;
+	int choques;
 };
 
 #endif /* AUTOMOVIL_H_ */

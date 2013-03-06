@@ -9,6 +9,7 @@
 
 Patrulla::Patrulla() {
 	this->sirena = "Wiu! Wiu! Wiu!";
+	this->choques = 99;
 	sonarSirena();
 }
 
@@ -19,22 +20,30 @@ void Patrulla::sonarSirena() {
 }
 
 void Patrulla::detenerDelicuente() {
-	cout << "You're under arrest!" << endl;
+	cout << "Estas bajo arresto!" << endl;
 }
 
-void Patrulla::chocar() {
-	cout << "Crash! Boom! Crash!" << endl;
+void Patrulla::chocar(Automovil t) {
+	cout << "Crash! Crash!" << endl;
+	int choques = t.getChoques();
+	t.setChoques();
+	choques = t.getChoques();
+	if(choques == 0){
+		cout << "Kaboom! GAME OVER!" << endl;
+	}
 }
 
 void Patrulla::avanza(Automovil t){
-	//Generar un número aleatorio entre 1 y 10
-	int random = 0;
+	int random = aleatorio(1,7);
 	int distancia;
-	distancia = this->distancia = this->distancia + random;
+	distancia = this->distancia;
 	if(distancia > t.getDistancia()){
-		detenerDelicuente();
-	} else if(distancia == t.getDistancia() || distancia == t.getDistancia()-1) {
-		chocar();
+		//No hace nada;
+	} else if(distancia == t.getDistancia()-1) {
+		chocar(t);
+	} else{
+		this->distancia = this->distancia + random;
 	}
-	sonarSirena();
+
+	//sonarSirena();
 }

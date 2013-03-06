@@ -10,6 +10,7 @@
 Automovil::Automovil() {
 	this->cilindros = 4;
 	this->distancia = 0;
+	this->choques = 1;
 	srand(time(0));
 }
 
@@ -24,15 +25,15 @@ void Automovil::setCilindros(int cilindros) {
 	this->cilindros = cilindros;
 }
 
-const string& Automovil::getColor() const {
+string Automovil::getColor(){
 	return color;
 }
 
-void Automovil::setColor(const string& color) {
+void Automovil::setColor(string color) {
 	this->color = color;
 }
 
-int Automovil::getDistancia() const {
+int Automovil::getDistancia(){
 	return distancia;
 }
 
@@ -40,11 +41,11 @@ void Automovil::setDistancia(int distancia) {
 	this->distancia = distancia;
 }
 
-const string& Automovil::getModelo() const {
+string Automovil::getModelo(){
 	return modelo;
 }
 
-void Automovil::setModelo(const string& modelo) {
+void Automovil::setModelo(string modelo) {
 	this->modelo = modelo;
 }
 
@@ -53,4 +54,12 @@ void Automovil::avanza() {
 
 int Automovil::aleatorio(int min, int max){
 	return (rand() % (max - min + 1)) + min;
+}
+
+int Automovil::getChoques(){
+	return choques;
+}
+
+void Automovil::setChoques() {
+	this->choques--;
 }
