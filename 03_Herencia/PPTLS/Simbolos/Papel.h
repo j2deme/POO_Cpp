@@ -4,6 +4,7 @@
  *  Created on: Mar 6, 2013
  *      Author: j2deme
  */
+#include "Simbolo.h"
 
 #ifndef PAPEL_H_
 #define PAPEL_H_

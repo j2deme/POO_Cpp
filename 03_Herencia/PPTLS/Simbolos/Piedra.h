@@ -4,6 +4,7 @@
  *  Created on: Mar 6, 2013
  *      Author: j2deme
  */
+#include "Simbolo.h"
 
 #ifndef PIEDRA_H_
 #define PIEDRA_H_

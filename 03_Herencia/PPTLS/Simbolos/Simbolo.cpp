@@ -16,7 +16,7 @@ Simbolo::~Simbolo() {
 }
 
 void Simbolo::ganaA(Simbolo s) {
-	this->gana[this->pros] = s;
+	this->gana[this->pros] = &s;
 	this->pros++;
 }
 
@@ -26,7 +26,7 @@ void Simbolo::compara(Simbolo s) {
 	}
 	int i;
 	for (i = 0; i < pros; ++i) {
-		if(s.getId() == gana[i]){
+		if(s.getId() == (int)gana[i]){
 			cout << "Gana CPU" << endl;
 		}
 	}

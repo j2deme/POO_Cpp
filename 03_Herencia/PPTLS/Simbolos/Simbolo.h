@@ -21,8 +21,8 @@ public:
 	int getId();
 protected:
 	int id;
-	Simbolo gana[5];
 	int pros;
+	Simbolo* gana[5];
 };
 
 #endif /* SIMBOLO_H_ */
