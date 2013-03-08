@@ -25,24 +25,34 @@ int main(int argc, char **argv) {
 	Spock s;
 	Simbolo sim[5]={t,pi,pa,l,s};
 	int usuario,cpu,max,min;
+	Simbolo u,c;
 
-	t.ganaA(pa);
-	t.ganaA(l);
-	pa.ganaA(pi);
-	pa.ganaA(s);
-	pi.ganaA(t);
-	pi.ganaA(l);
-	l.ganaA(pa);
-	l.ganaA(s);
-	s.ganaA(t);
-	s.ganaA(pi);
+	//Tijera = 5
+	t.ganaA(pa);//Tijera corta papel
+	t.ganaA(l);//Tijera corta lagarto
+	//Papel = 4
+	pa.ganaA(pi);//Papel cubre la piedra
+	pa.ganaA(s);//Papel refuta a Spock
+	//Piedra = 3
+	pi.ganaA(t);//Piedra destruye tijera
+	pi.ganaA(l);//Piedra aplasta lagarto
+	//Lagarto = 2
+	l.ganaA(pa);//Lagarto come papel
+	l.ganaA(s);//Lagarto envenena a Spock
+	//Spock = 1
+	s.ganaA(t);//Spock desintegra a tijera
+	s.ganaA(pi);//Spock desintegra a piedra
 
 	cout << "Elige un número de 1 al 5: ";
 	cin >> usuario;
 	min = 1;
 	max = 5;
 	cpu = (rand() % (max - min + 1)) + min;
+	u = sim[usuario-1];
+	c = sim[cpu-1];
+	u.compara(c);
 
-	cout << "Numeros elegidos--> Usuario: " << usuario << " CPU: " << cpu << endl;
+	cout << "Usuario: " << usuario << " CPU: " << cpu << endl;
+
 	return 0;
 }

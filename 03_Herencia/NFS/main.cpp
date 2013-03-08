@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	do {
 		t.avanza(p);
 		p.avanza(t);
-		cout << "P: " << p.getDistancia() << " T: " << t.getDistancia() << "Choques: " << t.getChoques() << endl;
+		cout << "P: " << p.getDistancia() << " T: " << t.getDistancia() << " Choques: " << t.getChoques() << endl;
 		distancia = t.getDistancia();
 	} while (distancia <= 100 && t.getChoques() > 0);
 

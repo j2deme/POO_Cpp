@@ -49,8 +49,6 @@ void Automovil::setModelo(string modelo) {
 	this->modelo = modelo;
 }
 
-void Automovil::avanza() {
-}
 
 int Automovil::aleatorio(int min, int max){
 	return (rand() % (max - min + 1)) + min;
@@ -60,6 +58,6 @@ int Automovil::getChoques(){
 	return choques;
 }
 
-void Automovil::setChoques() {
-	this->choques--;
+void Automovil::chocado(){
+	this->choques = this->choques-1;
 }

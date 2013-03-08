@@ -24,11 +24,9 @@ void Patrulla::detenerDelicuente() {
 }
 
 void Patrulla::chocar(Automovil t) {
-	cout << "Crash! Crash!" << endl;
-	int choques = t.getChoques();
-	t.setChoques();
-	choques = t.getChoques();
-	if(choques == 0){
+	t.chocado();
+	cout << "Crash! Crash!" << t.getChoques() << endl;
+	if(t.getChoques() == 0){
 		cout << "Kaboom! GAME OVER!" << endl;
 	}
 }

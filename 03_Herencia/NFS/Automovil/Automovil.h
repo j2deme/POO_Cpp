@@ -17,8 +17,6 @@ class Automovil {
 public:
 	Automovil();
 	virtual ~Automovil();
-	void avanza();
-	void setChoques();
 	int getCilindros() const;
 	void setCilindros(int cilindros);
 	string getColor();
@@ -28,6 +26,7 @@ public:
 	string getModelo();
 	void setModelo(string modelo);
 	int aleatorio(int,int);
+	void chocado();
 	int getChoques();
 protected:
 	string modelo;
