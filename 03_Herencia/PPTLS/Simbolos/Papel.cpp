@@ -8,7 +8,8 @@
 #include "Papel.h"
 
 Papel::Papel() {
-	this->id = 4;
+	Simbolo::setId(2);
+	Simbolo::setNombre("Papel");
 }
 
 Papel::~Papel() {}

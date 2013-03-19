@@ -8,7 +8,8 @@
 #include "Lagarto.h"
 
 Lagarto::Lagarto() {
-	this->id = 2;
+	Simbolo::setId(4);
+	Simbolo::setNombre("Lagarto");
 }
 
 Lagarto::~Lagarto() {}

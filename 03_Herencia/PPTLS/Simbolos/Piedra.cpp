@@ -8,7 +8,8 @@
 #include "Piedra.h"
 
 Piedra::Piedra() {
-	this->id = 3;
+	Simbolo::setId(1);
+	Simbolo::setNombre("Piedra");
 }
 
 Piedra::~Piedra() {

@@ -8,7 +8,8 @@
 #include "Tijera.h"
 
 Tijera::Tijera() {
-	this->id = 5;
+	Simbolo::setId(3);
+	Simbolo::setNombre("Tijera");
 }
 
 Tijera::~Tijera() {

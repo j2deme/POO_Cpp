@@ -8,7 +8,8 @@
 #include "Spock.h"
 
 Spock::Spock() {
-	this->id = 1;
+	Simbolo::setId(5);
+	Simbolo::setNombre("Spock");
 }
 
 Spock::~Spock() {}

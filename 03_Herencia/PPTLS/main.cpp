@@ -7,6 +7,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <cstdio>
+#include <string>
 using namespace std;
 
 #include "Simbolos/Simbolo.h"
@@ -16,43 +18,81 @@ using namespace std;
 #include "Simbolos/Lagarto.h"
 #include "Simbolos/Spock.h"
 
+int menu();
+int confirmacion();
+
 int main(int argc, char **argv) {
 	srand(time(0));
-	Tijera t;
-	Piedra pi;
-	Papel pa;
-	Lagarto l;
-	Spock s;
-	Simbolo sim[5]={t,pi,pa,l,s};
-	int usuario,cpu,max,min;
-	Simbolo u,c;
+	Simbolo* pi = new Piedra;
+	Simbolo* pa = new Papel;
+	Simbolo* t = new Tijera;
+	Simbolo* l = new Lagarto;
+	Simbolo* s = new Spock;
+	Simbolo* sim[5]={pi,pa,t,l,s};
+	int usuario, cpu, min = 1, max = 5;
+	Simbolo* u;
+	Simbolo* c;
+	int exit = 0;
 
-	//Tijera = 5
-	t.ganaA(pa);//Tijera corta papel
-	t.ganaA(l);//Tijera corta lagarto
-	//Papel = 4
-	pa.ganaA(pi);//Papel cubre la piedra
-	pa.ganaA(s);//Papel refuta a Spock
-	//Piedra = 3
-	pi.ganaA(t);//Piedra destruye tijera
-	pi.ganaA(l);//Piedra aplasta lagarto
-	//Lagarto = 2
-	l.ganaA(pa);//Lagarto come papel
-	l.ganaA(s);//Lagarto envenena a Spock
-	//Spock = 1
-	s.ganaA(t);//Spock desintegra a tijera
-	s.ganaA(pi);//Spock desintegra a piedra
+	pi->ganaA("destruye",t);//Piedra destruye tijera
+	pi->ganaA("aplasta",l);//Piedra aplasta lagarto
 
-	cout << "Elige un número de 1 al 5: ";
-	cin >> usuario;
-	min = 1;
-	max = 5;
-	cpu = (rand() % (max - min + 1)) + min;
-	u = sim[usuario-1];
-	c = sim[cpu-1];
-	u.compara(c);
+	pa->ganaA("cubre",pi);//Papel cubre la piedra
+	pa->ganaA("refuta",s);//Papel refuta a Spock
 
-	cout << "Usuario: " << usuario << " CPU: " << cpu << endl;
+	t->ganaA("corta",pa);//Tijera corta papel
+	t->ganaA("corta",l);//Tijera corta lagarto
+
+	l->ganaA("come",pa);//Lagarto come papel
+	l->ganaA("envenena",s);//Lagarto envenena a Spock
+
+	s->ganaA("desintegra",t);//Spock desintegra a tijera
+	s->ganaA("desintegra",pi);//Spock desintegra a piedra
+
+	do {
+		usuario = menu();
+		cpu = (rand() % (max - min + 1)) + min;
+		u = sim[usuario-1];
+		c = sim[cpu-1];
+		cout << "Usuario: " << u->getNombre() << endl;
+		cout << "CPU: " << c->getNombre() << endl;
+		u->compara(c);
+		exit = confirmacion();
+		cin.ignore();
+	} while (exit != 1);
 
 	return 0;
+}
+
+int menu(){
+	int op;
+	cout << "==Piedra-Papel-Tijera-Lagarto-Spock==" << endl;
+	cout << "[1] Piedra" << endl;
+	cout << "[2] Papel" << endl;
+	cout << "[3] Tijera" << endl;
+	cout << "[4] Lagarto" << endl;
+	cout << "[5] Spock" << endl;
+	cout << "=================" << endl;
+	cout << "Elige un número (1-5): ";
+	cin >> op;
+	if(op < 1 || op > 5){
+		return menu();
+	} else {
+		return op;
+	}
+}
+
+int confirmacion(){
+	char op;
+	cout << "¿Jugar de nuevo?[S]i,[N]o:";
+	cin >> op;
+	if(tolower(op) != 's' && tolower(op) != 'n'){
+		return confirmacion();
+	} else {
+		if(tolower(op) == 's'){
+			return 0;
+		} else {
+			return 1;
+		}
+	}
 }
