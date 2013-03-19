@@ -26,8 +26,9 @@ public:
 	string getModelo();
 	void setModelo(string modelo);
 	int aleatorio(int,int);
-	void chocado();
+	void chocar();
 	int getChoques();
+	void setChoques(int);
 protected:
 	string modelo;
 	string color;

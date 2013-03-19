@@ -9,16 +9,16 @@
 
 Tuneado::Tuneado() {
 	this->nitro = 3;
-	this->choques = 3;
+	Automovil::setChoques(3);
 }
 
 Tuneado::~Tuneado() {}
 
-void Tuneado::avanza(Automovil p) {
+void Tuneado::avanza(Automovil* p) {
 	int random = aleatorio(1,6);
 	int distancia;
 	distancia = this->distancia = this->distancia + random;
-	if(distancia == p.getDistancia()){
+	if(distancia == p->getDistancia()){
 		this->distancia = distancia + usarNitro();
 	}
 }

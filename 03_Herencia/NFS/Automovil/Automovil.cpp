@@ -58,6 +58,10 @@ int Automovil::getChoques(){
 	return choques;
 }
 
-void Automovil::chocado(){
-	this->choques = this->choques-1;
+void Automovil::setChoques(int choques){
+	this->choques = choques;
+}
+
+void Automovil::chocar(){
+	this->choques = Automovil::getChoques() - 1;
 }

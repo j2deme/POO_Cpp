@@ -18,8 +18,8 @@ public:
 	virtual ~Patrulla();
 	void sonarSirena();
 	void detenerDelicuente();
-	void chocar(Automovil);
-	void avanza(Automovil);
+	void chocar(Automovil*);
+	void avanza(Automovil*);
 private:
 	string sirena;
 };

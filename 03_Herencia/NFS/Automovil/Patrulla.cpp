@@ -23,21 +23,21 @@ void Patrulla::detenerDelicuente() {
 	cout << "Estas bajo arresto!" << endl;
 }
 
-void Patrulla::chocar(Automovil t) {
-	t.chocado();
-	cout << "Crash! Crash!" << t.getChoques() << endl;
-	if(t.getChoques() == 0){
+void Patrulla::chocar(Automovil* t) {
+	t->chocar();
+	cout << "==> Crash! Crash!" << endl;
+	if(t->getChoques() == 0){
 		cout << "Kaboom! GAME OVER!" << endl;
 	}
 }
 
-void Patrulla::avanza(Automovil t){
+void Patrulla::avanza(Automovil* t){
 	int random = aleatorio(1,7);
 	int distancia;
 	distancia = this->distancia;
-	if(distancia > t.getDistancia()){
+	if(distancia > t->getDistancia()){
 		//No hace nada;
-	} else if(distancia == t.getDistancia()-1) {
+	} else if(distancia == t->getDistancia()-1) {
 		chocar(t);
 	} else{
 		this->distancia = this->distancia + random;

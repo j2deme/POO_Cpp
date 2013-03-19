@@ -16,7 +16,7 @@ class Tuneado : public Automovil{
 public:
 	Tuneado();
 	virtual ~Tuneado();
-	void avanza(Automovil);
+	void avanza(Automovil*);
 	int usarNitro();
 private:
 	int nitro;

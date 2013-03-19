@@ -13,17 +13,18 @@ using namespace std;
 #include "Automovil/Tuneado.h"
 
 int main(int argc, char **argv) {
-	Patrulla p;
-	Tuneado t;
+	Automovil* p = new Patrulla;
+	Automovil* t = new Tuneado;
+
 	int distancia = 0;
 	do {
-		t.avanza(p);
-		p.avanza(t);
-		cout << "P: " << p.getDistancia() << " T: " << t.getDistancia() << " Choques: " << t.getChoques() << endl;
-		distancia = t.getDistancia();
-	} while (distancia <= 100 && t.getChoques() > 0);
+		dynamic_cast<Tuneado*>(t)->avanza(p);
+		dynamic_cast<Patrulla*>(p)->avanza(t);
+		cout << "[P] " << p->getDistancia() << "\t[T] " << t->getDistancia() << "\tChoques: " << t->getChoques() << endl;
+		distancia = t->getDistancia();
+	} while (distancia <= 100 && t->getChoques() > 0);
 
-	if(t.getChoques() != 0){
+	if(t->getChoques() != 0){
 		cout << "Player Wins!" << endl;
 	}
 
