@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TempConverter</class>
+ <widget class="QWidget" name="TempConverter">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>246</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TempConverter</string>
+  </property>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>461</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="left_side">
+      <item>
+       <widget class="QGroupBox" name="gb_celsius">
+        <property name="title">
+         <string>Celsius</string>
+        </property>
+        <widget class="QDial" name="dial_celsius">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>30</y>
+           <width>131</width>
+           <height>121</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLCDNumber" name="lcd_celsius">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>150</y>
+           <width>131</width>
+           <height>51</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="right_side">
+      <item>
+       <widget class="QGroupBox" name="gb_fahrenheit">
+        <property name="title">
+         <string>Fahrenheit</string>
+        </property>
+        <widget class="QDial" name="dial_fahrenheit">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>30</y>
+           <width>121</width>
+           <height>121</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLCDNumber" name="lcd_fahrenheit">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>150</y>
+           <width>131</width>
+           <height>51</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
