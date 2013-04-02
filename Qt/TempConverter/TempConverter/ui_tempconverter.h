@@ -18,6 +18,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -26,8 +27,9 @@ QT_BEGIN_NAMESPACE
 class Ui_TempConverter
 {
 public:
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *top;
     QVBoxLayout *left_side;
     QGroupBox *gb_celsius;
     QDial *dial_celsius;
@@ -36,46 +38,60 @@ public:
     QGroupBox *gb_fahrenheit;
     QDial *dial_fahrenheit;
     QLCDNumber *lcd_fahrenheit;
+    QPushButton *btnQuit;
 
     void setupUi(QWidget *TempConverter)
     {
         if (TempConverter->objectName().isEmpty())
             TempConverter->setObjectName(QStringLiteral("TempConverter"));
-        TempConverter->setWindowModality(Qt::WindowModal);
-        TempConverter->resize(480, 246);
-        horizontalLayoutWidget = new QWidget(TempConverter);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 10, 461, 221));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        TempConverter->setWindowModality(Qt::NonModal);
+        TempConverter->setEnabled(true);
+        TempConverter->resize(414, 280);
+        TempConverter->setMouseTracking(false);
+        verticalLayoutWidget = new QWidget(TempConverter);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 381, 251));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        top = new QHBoxLayout();
+        top->setSpacing(6);
+        top->setObjectName(QStringLiteral("top"));
         left_side = new QVBoxLayout();
         left_side->setSpacing(6);
         left_side->setObjectName(QStringLiteral("left_side"));
-        gb_celsius = new QGroupBox(horizontalLayoutWidget);
+        gb_celsius = new QGroupBox(verticalLayoutWidget);
         gb_celsius->setObjectName(QStringLiteral("gb_celsius"));
         dial_celsius = new QDial(gb_celsius);
         dial_celsius->setObjectName(QStringLiteral("dial_celsius"));
         dial_celsius->setGeometry(QRect(30, 30, 131, 121));
+        dial_celsius->setMaximum(100);
         lcd_celsius = new QLCDNumber(gb_celsius);
         lcd_celsius->setObjectName(QStringLiteral("lcd_celsius"));
         lcd_celsius->setGeometry(QRect(40, 150, 131, 51));
+        dial_celsius->raise();
+        lcd_celsius->raise();
+        verticalLayoutWidget->raise();
+        verticalLayoutWidget->raise();
 
         left_side->addWidget(gb_celsius);
 
 
-        horizontalLayout->addLayout(left_side);
+        top->addLayout(left_side);
 
         right_side = new QVBoxLayout();
         right_side->setSpacing(6);
         right_side->setObjectName(QStringLiteral("right_side"));
-        gb_fahrenheit = new QGroupBox(horizontalLayoutWidget);
+        gb_fahrenheit = new QGroupBox(verticalLayoutWidget);
         gb_fahrenheit->setObjectName(QStringLiteral("gb_fahrenheit"));
         dial_fahrenheit = new QDial(gb_fahrenheit);
         dial_fahrenheit->setObjectName(QStringLiteral("dial_fahrenheit"));
         dial_fahrenheit->setGeometry(QRect(40, 30, 121, 121));
+        dial_fahrenheit->setMinimum(32);
+        dial_fahrenheit->setMaximum(213);
+        dial_fahrenheit->setPageStep(5);
         lcd_fahrenheit = new QLCDNumber(gb_fahrenheit);
         lcd_fahrenheit->setObjectName(QStringLiteral("lcd_fahrenheit"));
         lcd_fahrenheit->setGeometry(QRect(40, 150, 131, 51));
@@ -83,7 +99,22 @@ public:
         right_side->addWidget(gb_fahrenheit);
 
 
-        horizontalLayout->addLayout(right_side);
+        top->addLayout(right_side);
+
+
+        verticalLayout->addLayout(top);
+
+        btnQuit = new QPushButton(verticalLayoutWidget);
+        btnQuit->setObjectName(QStringLiteral("btnQuit"));
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(btnQuit->sizePolicy().hasHeightForWidth());
+        btnQuit->setSizePolicy(sizePolicy);
+        btnQuit->setLayoutDirection(Qt::RightToLeft);
+        btnQuit->setAutoFillBackground(false);
+
+        verticalLayout->addWidget(btnQuit);
 
 
         retranslateUi(TempConverter);
@@ -93,9 +124,10 @@ public:
 
     void retranslateUi(QWidget *TempConverter)
     {
-        TempConverter->setWindowTitle(QApplication::translate("TempConverter", "TempConverter", 0));
+        TempConverter->setWindowTitle(QApplication::translate("TempConverter", "Temperature Converter", 0));
         gb_celsius->setTitle(QApplication::translate("TempConverter", "Celsius", 0));
         gb_fahrenheit->setTitle(QApplication::translate("TempConverter", "Fahrenheit", 0));
+        btnQuit->setText(QApplication::translate("TempConverter", "Quit", 0));
     } // retranslateUi
 
 };
