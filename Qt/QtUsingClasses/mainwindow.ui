@@ -50,16 +50,6 @@
      <string>Guardar</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="txtArea">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>10</y>
-      <width>104</width>
-      <height>78</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="txtRaza">
     <property name="geometry">
      <rect>
@@ -81,6 +71,35 @@
     </property>
     <property name="text">
      <string>Raza</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="sbEdad">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>90</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>20</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblEdad">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Edad</string>
     </property>
    </widget>
   </widget>

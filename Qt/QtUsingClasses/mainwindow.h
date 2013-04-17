@@ -1,8 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <iostream>
 #include <QMainWindow>
 #include "display.h"
+#include "perro.h"
+
+using namespace std;
 
 
 namespace Ui {

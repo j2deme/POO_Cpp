@@ -29,6 +29,8 @@ public:
     QLabel *lblRaza;
     QLineEdit *txtRaza;
     QPushButton *btnCerrar;
+    QLabel *lblEdad;
+    QLineEdit *txtEdad;
 
     void setupUi(QDialog *Display)
     {
@@ -38,6 +40,7 @@ public:
         txtNombre = new QLineEdit(Display);
         txtNombre->setObjectName(QStringLiteral("txtNombre"));
         txtNombre->setGeometry(QRect(120, 30, 113, 27));
+        txtNombre->setReadOnly(true);
         lblNombre = new QLabel(Display);
         lblNombre->setObjectName(QStringLiteral("lblNombre"));
         lblNombre->setGeometry(QRect(50, 30, 67, 17));
@@ -47,9 +50,16 @@ public:
         txtRaza = new QLineEdit(Display);
         txtRaza->setObjectName(QStringLiteral("txtRaza"));
         txtRaza->setGeometry(QRect(120, 70, 113, 27));
+        txtRaza->setReadOnly(true);
         btnCerrar = new QPushButton(Display);
         btnCerrar->setObjectName(QStringLiteral("btnCerrar"));
         btnCerrar->setGeometry(QRect(230, 160, 99, 27));
+        lblEdad = new QLabel(Display);
+        lblEdad->setObjectName(QStringLiteral("lblEdad"));
+        lblEdad->setGeometry(QRect(50, 100, 67, 17));
+        txtEdad = new QLineEdit(Display);
+        txtEdad->setObjectName(QStringLiteral("txtEdad"));
+        txtEdad->setGeometry(QRect(120, 100, 113, 27));
 
         retranslateUi(Display);
 
@@ -62,6 +72,7 @@ public:
         lblNombre->setText(QApplication::translate("Display", "Nombre", 0));
         lblRaza->setText(QApplication::translate("Display", "Raza", 0));
         btnCerrar->setText(QApplication::translate("Display", "Cerrar", 0));
+        lblEdad->setText(QApplication::translate("Display", "Edad", 0));
     } // retranslateUi
 
 };

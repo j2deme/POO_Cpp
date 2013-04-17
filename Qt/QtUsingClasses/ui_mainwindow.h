@@ -18,8 +18,8 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -33,9 +33,10 @@ public:
     QLabel *lblNombre;
     QLineEdit *txtNombre;
     QPushButton *btnGuardar;
-    QPlainTextEdit *txtArea;
     QLineEdit *txtRaza;
     QLabel *lblRaza;
+    QSpinBox *sbEdad;
+    QLabel *lblEdad;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -56,15 +57,20 @@ public:
         btnGuardar = new QPushButton(centralWidget);
         btnGuardar->setObjectName(QStringLiteral("btnGuardar"));
         btnGuardar->setGeometry(QRect(280, 170, 99, 27));
-        txtArea = new QPlainTextEdit(centralWidget);
-        txtArea->setObjectName(QStringLiteral("txtArea"));
-        txtArea->setGeometry(QRect(280, 10, 104, 78));
         txtRaza = new QLineEdit(centralWidget);
         txtRaza->setObjectName(QStringLiteral("txtRaza"));
         txtRaza->setGeometry(QRect(100, 60, 113, 27));
         lblRaza = new QLabel(centralWidget);
         lblRaza->setObjectName(QStringLiteral("lblRaza"));
         lblRaza->setGeometry(QRect(30, 60, 41, 21));
+        sbEdad = new QSpinBox(centralWidget);
+        sbEdad->setObjectName(QStringLiteral("sbEdad"));
+        sbEdad->setGeometry(QRect(100, 90, 111, 31));
+        sbEdad->setMinimum(1);
+        sbEdad->setMaximum(20);
+        lblEdad = new QLabel(centralWidget);
+        lblEdad->setObjectName(QStringLiteral("lblEdad"));
+        lblEdad->setGeometry(QRect(30, 100, 67, 17));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -88,6 +94,7 @@ public:
         lblNombre->setText(QApplication::translate("MainWindow", "Nombre", 0));
         btnGuardar->setText(QApplication::translate("MainWindow", "Guardar", 0));
         lblRaza->setText(QApplication::translate("MainWindow", "Raza", 0));
+        lblEdad->setText(QApplication::translate("MainWindow", "Edad", 0));
     } // retranslateUi
 
 };

@@ -16,14 +16,11 @@ class Display : public QDialog
     Q_OBJECT
 
 public:
-    explicit Display(QWidget *parent = 0);
+    explicit Display(Perro *mascota, QWidget *parent = 0);
     ~Display();
-    void setPerro(Perro*);
-    Perro* getPerro();
-
 private:
     Ui::Display *ui;
-    Perro* mascota;
+    Perro *mascota;
 };
 
 #endif // DISPLAY_H

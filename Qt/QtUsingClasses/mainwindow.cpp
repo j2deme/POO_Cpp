@@ -1,9 +1,5 @@
-#include <iostream>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "perro.h"
-
-using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,12 +14,12 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::on_btnGuardar_clicked(){
-    Perro* mascota = new Perro();
+    Perro *mascota = new Perro();
     mascota->setName(ui->txtNombre->text().toUtf8().constData());
     mascota->setRaza(ui->txtRaza->text().toUtf8().constData());
+    mascota->setEdad(ui->sbEdad->value());
 
-    ventana = new Display(this);
-    ventana->setPerro(mascota);
+    ventana = new Display(mascota,this);
     ventana->show();
     ventana->raise();
     ventana->activateWindow();

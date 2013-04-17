@@ -2,25 +2,24 @@
 #include "ui_display.h"
 #include <QDebug>
 
-Display::Display(QWidget *parent) :
+Display::Display(Perro *mascota, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Display)
 {
     ui->setupUi(this);
-    //ui->txtNombre->setText(QString::fromStdString(this->mascota->getName()));
-    //qDebug("A string: %s", qPrintable(QString::fromStdString(this->mascota->getName())));
+    this->mascota = mascota;
+    //this->mascota->setName("Lobo");
+    //qDebug("Test string");
+    //qDebug("Nombre: %s", qPrintable(QString::fromStdString(Display::getPerro()->getName())));
+
+    ui->txtNombre->setText(QString::fromStdString(this->mascota->getName()));
+    ui->txtRaza->setText(QString::fromStdString(this->mascota->getRaza()));
+    ui->txtEdad->setText(QString::number(this->mascota->getEdad()));
+
     connect(ui->btnCerrar,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 Display::~Display()
 {
     delete ui;
-}
-
-void Display::setPerro(Perro* mascota){
-    this->mascota = mascota;
-}
-
-Perro* Display::getPerro(){
-    return this->mascota;
 }

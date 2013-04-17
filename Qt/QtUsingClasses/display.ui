@@ -22,6 +22,9 @@
      <height>27</height>
     </rect>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="lblNombre">
    <property name="geometry">
@@ -58,6 +61,9 @@
      <height>27</height>
     </rect>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnCerrar">
    <property name="geometry">
@@ -72,7 +78,36 @@
     <string>Cerrar</string>
    </property>
   </widget>
+  <widget class="QLabel" name="lblEdad">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>100</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Edad</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtEdad">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>100</y>
+     <width>113</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>txtNombre</tabstop>
+  <tabstop>txtRaza</tabstop>
+  <tabstop>txtEdad</tabstop>
+  <tabstop>btnCerrar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
