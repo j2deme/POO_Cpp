@@ -57,6 +57,7 @@ public:
         btnGuardar = new QPushButton(centralWidget);
         btnGuardar->setObjectName(QStringLiteral("btnGuardar"));
         btnGuardar->setGeometry(QRect(280, 170, 99, 27));
+        btnGuardar->setFocusPolicy(Qt::TabFocus);
         txtRaza = new QLineEdit(centralWidget);
         txtRaza->setObjectName(QStringLiteral("txtRaza"));
         txtRaza->setGeometry(QRect(100, 60, 113, 27));
@@ -82,6 +83,9 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(txtNombre, txtRaza);
+        QWidget::setTabOrder(txtRaza, sbEdad);
+        QWidget::setTabOrder(sbEdad, btnGuardar);
 
         retranslateUi(MainWindow);
 
@@ -90,7 +94,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Ventana Principal", 0));
         lblNombre->setText(QApplication::translate("MainWindow", "Nombre", 0));
         btnGuardar->setText(QApplication::translate("MainWindow", "Guardar", 0));
         lblRaza->setText(QApplication::translate("MainWindow", "Raza", 0));

@@ -1,28 +1,41 @@
 #include <iostream>
 #include "perro.h"
 
-Perro::Perro(){
+Perro::Perro(QObject *parent) : QObject(parent) {
     this->edad = 1;
 }
 
-void Perro::setName(string name){
-    this->name = name;
+Perro::~Perro(){
+    delete this;
 }
 
-string Perro::getName() const{
-    return this->name;
+void Perro::setNombre(QString nombre){
+    if (nombre != this->nombre) {
+        this->nombre = nombre;
+        emit nombreChanged(nombre);
+    }
 }
 
-void Perro::setRaza(string raza){
-    this->raza = raza;
+QString Perro::getNombre(){
+    return this->nombre;
 }
 
-string Perro::getRaza() const{
+void Perro::setRaza(QString raza){
+    if(raza != this->raza){
+        this->raza = raza;
+        emit razaChanged(raza);
+    }
+}
+
+QString Perro::getRaza(){
     return this->raza;
 }
 
 void Perro::setEdad(int edad){
-    this->edad = edad;
+    if(edad != this->edad){
+        this->edad = edad;
+        emit edadChanged(edad);
+    }
 }
 
 int Perro::getEdad(){

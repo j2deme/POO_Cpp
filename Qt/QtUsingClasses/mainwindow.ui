@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Ventana Principal</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="lblNombre">
@@ -45,6 +45,9 @@
       <width>99</width>
       <height>27</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
     </property>
     <property name="text">
      <string>Guardar</string>
@@ -124,6 +127,12 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>txtNombre</tabstop>
+  <tabstop>txtRaza</tabstop>
+  <tabstop>sbEdad</tabstop>
+  <tabstop>btnGuardar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

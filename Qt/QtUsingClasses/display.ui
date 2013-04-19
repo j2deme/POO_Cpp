@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Display</class>
  <widget class="QDialog" name="Display">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,9 +14,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Display</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
   </property>
   <widget class="QLineEdit" name="txtNombre">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -23,7 +32,7 @@
     </rect>
    </property>
    <property name="readOnly">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="lblNombre">
@@ -53,6 +62,9 @@
    </property>
   </widget>
   <widget class="QLineEdit" name="txtRaza">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -62,7 +74,7 @@
     </rect>
    </property>
    <property name="readOnly">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="btnCerrar">
@@ -92,6 +104,9 @@
    </property>
   </widget>
   <widget class="QLineEdit" name="txtEdad">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -99,6 +114,9 @@
      <width>113</width>
      <height>27</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

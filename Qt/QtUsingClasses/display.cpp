@@ -2,24 +2,39 @@
 #include "ui_display.h"
 #include <QDebug>
 
-Display::Display(Perro *mascota, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Display)
+Display::Display(Perro *perro, QWidget *parent) :
+    QDialog(parent), ui(new Ui::Display)
 {
     ui->setupUi(this);
-    this->mascota = mascota;
-    //this->mascota->setName("Lobo");
-    //qDebug("Test string");
-    //qDebug("Nombre: %s", qPrintable(QString::fromStdString(Display::getPerro()->getName())));
+    setModel(perro);
+    load();
 
-    ui->txtNombre->setText(QString::fromStdString(this->mascota->getName()));
-    ui->txtRaza->setText(QString::fromStdString(this->mascota->getRaza()));
-    ui->txtEdad->setText(QString::number(this->mascota->getEdad()));
-
+    connect(ui->btnCerrar,SIGNAL(clicked()),this,SLOT(save()));
     connect(ui->btnCerrar,SIGNAL(clicked()),this,SLOT(close()));
 }
 
-Display::~Display()
-{
+Display::~Display(){
     delete ui;
+}
+
+void Display::setModel(Perro *p){
+    this->perro = p;
+}
+
+Perro* Display::getModel(){
+    return this->perro;
+}
+
+void Display::load(){
+    if (perro == 0) return;
+    ui->txtNombre->setText(this->perro->getNombre());
+    ui->txtRaza->setText(this->perro->getRaza());
+    ui->txtEdad->setText(QString::number(this->perro->getEdad()));
+}
+
+void Display::save(){
+    if (perro == 0) return;
+    perro->setNombre(ui->txtNombre->text());
+    perro->setRaza(ui->txtRaza->text());
+    perro->setEdad(ui->txtEdad->text().toInt());
 }

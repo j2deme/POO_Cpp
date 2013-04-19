@@ -36,11 +36,14 @@ public:
     {
         if (Display->objectName().isEmpty())
             Display->setObjectName(QStringLiteral("Display"));
+        Display->setWindowModality(Qt::WindowModal);
         Display->resize(400, 300);
+        Display->setModal(false);
         txtNombre = new QLineEdit(Display);
         txtNombre->setObjectName(QStringLiteral("txtNombre"));
+        txtNombre->setEnabled(true);
         txtNombre->setGeometry(QRect(120, 30, 113, 27));
-        txtNombre->setReadOnly(true);
+        txtNombre->setReadOnly(false);
         lblNombre = new QLabel(Display);
         lblNombre->setObjectName(QStringLiteral("lblNombre"));
         lblNombre->setGeometry(QRect(50, 30, 67, 17));
@@ -49,8 +52,9 @@ public:
         lblRaza->setGeometry(QRect(50, 70, 67, 17));
         txtRaza = new QLineEdit(Display);
         txtRaza->setObjectName(QStringLiteral("txtRaza"));
+        txtRaza->setEnabled(true);
         txtRaza->setGeometry(QRect(120, 70, 113, 27));
-        txtRaza->setReadOnly(true);
+        txtRaza->setReadOnly(false);
         btnCerrar = new QPushButton(Display);
         btnCerrar->setObjectName(QStringLiteral("btnCerrar"));
         btnCerrar->setGeometry(QRect(230, 160, 99, 27));
@@ -59,7 +63,12 @@ public:
         lblEdad->setGeometry(QRect(50, 100, 67, 17));
         txtEdad = new QLineEdit(Display);
         txtEdad->setObjectName(QStringLiteral("txtEdad"));
+        txtEdad->setEnabled(true);
         txtEdad->setGeometry(QRect(120, 100, 113, 27));
+        txtEdad->setReadOnly(false);
+        QWidget::setTabOrder(txtNombre, txtRaza);
+        QWidget::setTabOrder(txtRaza, txtEdad);
+        QWidget::setTabOrder(txtEdad, btnCerrar);
 
         retranslateUi(Display);
 
@@ -68,7 +77,7 @@ public:
 
     void retranslateUi(QDialog *Display)
     {
-        Display->setWindowTitle(QApplication::translate("Display", "Dialog", 0));
+        Display->setWindowTitle(QApplication::translate("Display", "Display", 0));
         lblNombre->setText(QApplication::translate("Display", "Nombre", 0));
         lblRaza->setText(QApplication::translate("Display", "Raza", 0));
         btnCerrar->setText(QApplication::translate("Display", "Cerrar", 0));

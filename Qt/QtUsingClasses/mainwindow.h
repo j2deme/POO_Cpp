@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <QMainWindow>
+#include <QDebug>
 #include "display.h"
 #include "perro.h"
 
@@ -20,13 +21,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+public slots:
+    void update();
 private slots:
-    void on_btnGuardar_clicked();
-
+    void openDisplay();
 private:
     Ui::MainWindow *ui;
-    Display *ventana;
+    Display *display;
+    Perro *perro;
 };
 
 #endif // MAINWINDOW_H
