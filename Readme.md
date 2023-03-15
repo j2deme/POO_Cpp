@@ -1,5 +1,6 @@
-#Programación Orientada a Objetos con C++
-En este repositorio de código, podran encontrar diversos documentos y códigos fuentes que incluyen desde los conceptos básicos de programación en C++ hasta las diversas implementaciones de los conceptos de POO tales como:
+# Programación Orientada a Objetos con C++
+
+En este repositorio de código, podran encontrar diversos documentos y códigos fuentes incluyendo conceptos básicos de programación en C++ hasta las diversas implementaciones de los conceptos de POO tales como:
 
 * Clases y Objetos
 * Composición de Clases
